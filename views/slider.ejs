@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Add New Post</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <%- include('includes/header.ejs') %>
+  <div class="container">
+    <h3>Sliders</h3>
+      
+  </div>
+  <div class="container">
+    <div class="row justify-content-center">
+    <div class="col-md-6">
+        <form action="/admin/slider" method="POST">
+            <div class="form-group">
+                <label for="tags">Featured Tags</label>
+              <input type="text" class="form-control" name="tags" value="<%= slider.tags.join(', ') %>" placeholder="Separate tags with comma & space. eg. 'tag, tag2'">                  
+            </div>
+            <div class="form-group">
+                <label for="topic">Featured Topic</label>
+              <input type="text" class="form-control" name="topic" value="<%= slider.topic %>" required>                  
+            </div>
+            <div class="form-group">
+              <label for="tag">Featured Tag</label>
+            <input type="text" class="form-control" name="tag" value="<%= slider.tag %>" required>                  
+          </div>
+          <div class="form-group">
+            <label for="tag">Featured Posts #1</label>
+          <input type="text" class="form-control" name="post1" value="<%= slider.post1 %>" required>                  
+          </div>
+          <div class="form-group">
+            <label for="tag">Featured Posts #2</label>
+          <input type="text" class="form-control" name="post2" value="<%= slider.post2 %>" required>                  
+          </div>
+          <div class="form-group">
+            <label for="tag">Featured Posts #3</label>
+          <input type="text" class="form-control" name="post3" value="<%= slider.post3 %>" required>                  
+          </div>
+          <div class="form-group">
+            <label for="tag">Featured Posts #4</label>
+          <input type="text" class="form-control" name="post4" value="<%= slider.post4 %>" required>                  
+          </div>
+          <div class="form-group">
+            <label for="tag">Featured Posts #5</label>
+          <input type="text" class="form-control" name="post5" value="<%= slider.post5 %>" required>                  
+          </div>
+          <div class="form-group">
+            <label for="tag">Featured topics #1</label>
+          <input type="text" class="form-control" name="topic1" value="<%= slider.topic1 %>" required>                  
+          </div>
+          <div class="form-group">
+            <label for="tag">Featured topics #2</label>
+          <input type="text" class="form-control" name="topic2" value="<%= slider.topic2 %>" required>                  
+          </div>
+          <div class="form-group">
+            <label for="tag">Featured topics #3</label>
+          <input type="text" class="form-control" name="topic3" value="<%= slider.topic3 %>" required>                  
+          </div>
+          <div class="form-group">
+            <label for="tag">Featured topics #4</label>
+          <input type="text" class="form-control" name="topic4" value="<%= slider.topic4 %>" required>                  
+          </div>
+          <div class="form-group">
+            <label for="tag">Featured topics #5</label>
+          <input type="text" class="form-control" name="topic5" value="<%= slider.topic5 %>" required>                  
+          </div>            
+            
+            
+          <button type="submit" class="btn btn-primary mt-4">Update</button>
+            <a class="btn btn-outline-primery  mt-4" href="/admin/dashboard">Cancel</a>
+          </form>
+    </div>
+    </div>
+</div> 
+</body>
+</html>

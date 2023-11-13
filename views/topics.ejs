@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Add New Post</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <%- include('includes/header.ejs') %>
+  <div class="container">
+    <h1>Topics</h1>
+     
+    <div class="container" align="right"> <a align="right" class="btn btn-outline-primary" href="/admin/addtopic">Add Topic </a></div>
+
+    <br>
+    <div class="container">
+      <form class="d-flex">
+        <input class="form-control me-sm-2 " name="search" type="search" value="<%= searchquery %>">      
+        <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+      </form>     
+      <br>    
+        <div class="row">
+            <% topics.forEach(function(topic) { %>
+                <div class="col-md-4 mb-4">
+                  <div class="card" >
+                    <img class="card-img-top" height="300" src="<%= topic.thumbnail %>" alt="Card image cap">
+                    <div class="card-body">
+                      <a href="/admin/topic/<%= topic._id %>">
+                      <h5 class="card-title" ><%= topic.name %></h5></a>
+                      <p class="card-text"><%= topic.description %></p>
+                      <p class="card-text"><small class="text-muted"><%= topic._id %></small></p>
+                      <a class="btn btn-primary" href="/admin/updatetopic/<%= topic._id %>">Edit </a> 
+                      <a class="btn btn-outline-danger" href="/admin/deletetopic/<%= topic._id %>">Delete </a> 
+                    </div>
+                  </div>
+                </div>
+            <% }); %>          
+        </div>
+    </div>
+  </div>
+  <br>
+  <div class="container" >
+    <nav  >
+      <ul class="pagination">
+        <% if(currentPage > 1){ %>
+        <li class="page-item ">
+          <a class="page-link" href="?search=<%= searchquery %>&page=<%= currentPage-1  %>">PREVIOUS</a>
+        </li>
+        <% } else { %>
+          <li class="page-item disabled">
+            <a class="page-link" href="#">PREVIOUS</a>
+          </li>
+          <% } %>
+        <li class="page-item">
+          <a class="page-link">PAGE <%= currentPage %> OF <%= totalpages %> </a>
+        </li>
+        <% if(currentPage < totalpages ){ %>
+          <li class="page-item ">
+            <a class="page-link" href="?search=<%= searchquery %>&page=<%= ++currentPage  %>">NEXT</a>
+          </li>
+          <% } else { %>
+            <li class="page-item disabled">
+              <a class="page-link" href="#">NEXT</a>
+            </li>
+            <% } %>
+      </ul>
+    </nav>
+  </div>
+<br>
+</body>
+</html>

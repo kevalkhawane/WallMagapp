@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Add New Post</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <%- include('includes/header.ejs') %>
+  <div class="container">
+    <h3>Profile</h3>
+    <table class="table table-hover">      
+      <tbody>  
+        <tr>
+          <th scope="row"></th>
+          <td><img src="<%= thumbnail %>"></td>
+        </tr>      
+        <tr>
+          <th scope="row">Name</th>
+          <td><%= username %></td>
+        </tr>
+        <tr>
+          <th scope="row">Admin</th>
+          <td>Verified User </td>
+        </tr>
+        <tr>
+          <th scope="row"></th>          
+          <td><a class="btn btn-primary mt-4" href="/auth/logout">LOGOUT</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
